@@ -44,3 +44,7 @@ test("cocoa, milk, butter, sugar, water makes chocolate.", () => {
 test("milk, chocolate makes chocolateMilk.", () => {
   expect(mix(["milk", "chocolate"])).toBe("chocolateMilk");
 });
+
+test("grains, water makes rice.", () => {
+  expect(mix(["grains", "water"])).toBe("rice");
+});
