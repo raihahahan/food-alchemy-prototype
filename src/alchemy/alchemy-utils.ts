@@ -1,19 +1,19 @@
 import { alchemyData, alchemyItems } from "./alchemy-data";
 
-export function mix(item1: string, item2: string): string | null {
-  if (!alchemyItems.includes(item1) || !alchemyItems.includes(item2)) {
-    return null;
+export function mix(items: string[]): string | null {
+  for (let item of items) {
+    if (
+      !alchemyItems.includes(item) ||
+      !alchemyItems.includes(item) ||
+      !alchemyData[item].isMixable
+    )
+      return null;
   }
 
-  // check if item1 and item2 are mixable
-  if (!alchemyData[item1].isMixable || !alchemyData[item2].isMixable) {
-    return null;
+  for (let item of items) {
+    const toFind = alchemyData[item].mixWith;
+    if (items.includes(toFind.item)) return toFind.makes;
   }
 
-  if (
-    alchemyData[item1].mixWith.item == item2 ||
-    alchemyData[item2].mixWith.item == item1
-  ) {
-    return alchemyData[item1].mixWith.makes;
-  } else return null;
+  return null;
 }
