@@ -1,4 +1,3 @@
-import { alchemyData, alchemyItems } from "./alchemy/alchemy-data";
 import { mix } from "./alchemy/alchemy-utils";
 
 function main() {
@@ -9,7 +8,6 @@ function main() {
       arr.push(args[i]);
     }
     const mixed = mix(arr);
-    console.log("Items: ", alchemyItems.length);
     if (mixed != null) {
       console.log(`${arr} makes ${mixed}`);
     } else {
@@ -17,4 +15,5 @@ function main() {
     }
   }
 }
+
 main();
