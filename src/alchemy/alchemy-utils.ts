@@ -10,7 +10,10 @@ export function mix(item1: string, item2: string): string | null {
     return null;
   }
 
-  if (alchemyData[item1].mixWith.item == item2) {
+  if (
+    alchemyData[item1].mixWith.item == item2 ||
+    alchemyData[item2].mixWith.item == item1
+  ) {
     return alchemyData[item1].mixWith.makes;
   } else return null;
 }
