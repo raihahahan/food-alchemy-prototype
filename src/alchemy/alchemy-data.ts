@@ -6,7 +6,7 @@ export const alchemyData: alchemyDataType = {
     isMixable: true,
     prettyPrint: "Ice-Cream",
     mixWith: {
-      item: "banana",
+      item: ["banana"],
       makes: "bananaSplit",
     },
     components: ["milk", "whippingCream"],
@@ -16,7 +16,7 @@ export const alchemyData: alchemyDataType = {
     isMixable: true,
     prettyPrint: "Banana",
     mixWith: {
-      item: "banana",
+      item: ["iceCream"],
       makes: "bananaSplit",
     },
     components: [],
@@ -27,7 +27,7 @@ export const alchemyData: alchemyDataType = {
     prettyPrint: "Banana Split",
     components: ["banana, iceCream"],
     mixWith: {
-      item: "",
+      item: [""],
       makes: "",
     },
   },
@@ -36,7 +36,7 @@ export const alchemyData: alchemyDataType = {
     isMixable: true,
     prettyPrint: "Milk",
     mixWith: {
-      item: "whippingCream",
+      item: ["whippingCream"],
       makes: "iceCream",
     },
     components: [],
@@ -46,10 +46,50 @@ export const alchemyData: alchemyDataType = {
     isMixable: true,
     prettyPrint: "Whipping Cream",
     mixWith: {
-      item: "milk",
+      item: ["milk"],
       makes: "iceCream",
     },
     components: [],
+  },
+  bread: {
+    isPrimitive: true,
+    isMixable: true,
+    prettyPrint: "Bread",
+    mixWith: {
+      item: ["ham", "cheese"],
+      makes: "sandwich",
+    },
+    components: [],
+  },
+  ham: {
+    isPrimitive: true,
+    isMixable: true,
+    prettyPrint: "Ham",
+    mixWith: {
+      item: ["bread", "cheese"],
+      makes: "sandwich",
+    },
+    components: [],
+  },
+  cheese: {
+    isPrimitive: true,
+    isMixable: true,
+    prettyPrint: "Cheese",
+    mixWith: {
+      item: ["ham", "bread"],
+      makes: "sandwich",
+    },
+    components: [],
+  },
+  sandwich: {
+    isPrimitive: false,
+    isMixable: false,
+    prettyPrint: "Sandwich",
+    mixWith: {
+      item: [],
+      makes: "",
+    },
+    components: ["ham, cheese, bread"],
   },
 };
 

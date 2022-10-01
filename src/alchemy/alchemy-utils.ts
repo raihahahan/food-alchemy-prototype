@@ -12,7 +12,10 @@ export function mix(items: string[]): string | null {
 
   for (let item of items) {
     const toFind = alchemyData[item].mixWith;
-    if (items.includes(toFind.item)) return toFind.makes;
+    for (let j of toFind.item) {
+      if (!items.includes(j)) return null;
+    }
+    return toFind.makes;
   }
 
   return null;

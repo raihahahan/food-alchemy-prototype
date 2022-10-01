@@ -3,7 +3,7 @@ export type itemData = {
   isMixable: boolean;
   prettyPrint: string;
   mixWith: {
-    item: string;
+    item: string[];
     makes: string;
   };
   components: string[];
