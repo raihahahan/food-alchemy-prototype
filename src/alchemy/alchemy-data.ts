@@ -12,7 +12,6 @@ export const alchemyData: alchemyDataType = {
       },
     ],
     components: ["milk", "whippingCream"],
-    isInfinite: false,
   },
   banana: {
     isPrimitive: true,
@@ -25,26 +24,23 @@ export const alchemyData: alchemyDataType = {
       },
     ],
     components: [],
-    isInfinite: true,
   },
   bananaSplit: {
     isPrimitive: false,
     isMixable: false,
     prettyPrint: "Banana Split",
     components: ["banana, iceCream"],
-    mixWith: [
-      {
-        item: [],
-        makes: "",
-      },
-    ],
-    isInfinite: false,
+    mixWith: [],
   },
   milk: {
     isPrimitive: true,
     isMixable: true,
     prettyPrint: "Milk",
     mixWith: [
+      {
+        item: ["butter", "sugar", "water", "cocoa"],
+        makes: "chocolate",
+      },
       {
         item: ["whippingCream"],
         makes: "iceCream",
@@ -55,7 +51,6 @@ export const alchemyData: alchemyDataType = {
       },
     ],
     components: [],
-    isInfinite: true,
   },
   whippingCream: {
     isPrimitive: true,
@@ -68,7 +63,6 @@ export const alchemyData: alchemyDataType = {
       },
     ],
     components: [],
-    isInfinite: true,
   },
   bread: {
     isPrimitive: false,
@@ -81,7 +75,6 @@ export const alchemyData: alchemyDataType = {
       },
     ],
     components: ["flour", "yeast"],
-    isInfinite: false,
   },
   ham: {
     isPrimitive: true,
@@ -94,7 +87,6 @@ export const alchemyData: alchemyDataType = {
       },
     ],
     components: [],
-    isInfinite: true,
   },
   cheese: {
     isPrimitive: true,
@@ -107,20 +99,13 @@ export const alchemyData: alchemyDataType = {
       },
     ],
     components: [],
-    isInfinite: true,
   },
   sandwich: {
     isPrimitive: false,
     isMixable: false,
     prettyPrint: "Sandwich",
-    mixWith: [
-      {
-        item: [],
-        makes: "",
-      },
-    ],
+    mixWith: [],
     components: ["ham, cheese, bread"],
-    isInfinite: false,
   },
   flour: {
     isPrimitive: true,
@@ -133,10 +118,9 @@ export const alchemyData: alchemyDataType = {
       },
     ],
     components: [],
-    isInfinite: true,
   },
   yeast: {
-    isPrimitive: false,
+    isPrimitive: true,
     isMixable: true,
     prettyPrint: "Yeast",
     mixWith: [
@@ -146,7 +130,6 @@ export const alchemyData: alchemyDataType = {
       },
     ],
     components: [],
-    isInfinite: true,
   },
   cocoa: {
     isPrimitive: true,
@@ -159,7 +142,6 @@ export const alchemyData: alchemyDataType = {
       },
     ],
     components: [],
-    isInfinite: false,
   },
   butter: {
     isPrimitive: true,
@@ -172,7 +154,6 @@ export const alchemyData: alchemyDataType = {
       },
     ],
     components: [],
-    isInfinite: true,
   },
   sugar: {
     isPrimitive: true,
@@ -185,7 +166,6 @@ export const alchemyData: alchemyDataType = {
       },
     ],
     components: [],
-    isInfinite: true,
   },
   water: {
     isPrimitive: true,
@@ -196,29 +176,68 @@ export const alchemyData: alchemyDataType = {
         item: ["milk", "butter", "sugar", "cocoa"],
         makes: "chocolate",
       },
+      {
+        item: ["grains"],
+        makes: "rice",
+      },
     ],
     components: [],
-    isInfinite: true,
   },
   chocolateMilk: {
     isPrimitive: false,
-    isMixable: true,
+    isMixable: false,
     prettyPrint: "Chocolate Milk",
     mixWith: [],
     components: ["milk", "chocolate"],
-    isInfinite: false,
   },
   chocolate: {
     isPrimitive: false,
     isMixable: true,
     prettyPrint: "Chocolate",
-    mixWith: [],
+    mixWith: [
+      {
+        item: ["milk"],
+        makes: "chocolate",
+      },
+    ],
     components: ["milk", "butter", "sugar", "cocoa", "water"],
-    isInfinite: true,
+  },
+  chicken: {
+    isPrimitive: true,
+    isMixable: true,
+    prettyPrint: "Chicken",
+    mixWith: [
+      {
+        item: ["rice"],
+        makes: "chickenRice",
+      },
+    ],
+    components: [],
+  },
+  rice: {
+    isPrimitive: false,
+    isMixable: true,
+    prettyPrint: "Rice",
+    mixWith: [
+      {
+        item: ["chicken"],
+        makes: "chickenRice",
+      },
+    ],
+    components: ["water", "grains"],
+  },
+  grains: {
+    isPrimitive: true,
+    isMixable: true,
+    prettyPrint: "Grains",
+    mixWith: [
+      {
+        item: ["water"],
+        makes: "rice",
+      },
+    ],
+    components: [],
   },
 };
 
 export const alchemyItems = Object.keys(alchemyData);
-export const infiniteResource = Object.entries(alchemyData)
-  .filter((i) => i[1].isInfinite)
-  .map((j) => j[0]);
