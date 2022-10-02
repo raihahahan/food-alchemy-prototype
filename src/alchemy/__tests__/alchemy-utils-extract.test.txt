@@ -1,0 +1,14 @@
+grains,/s/,flour
+sugarCane,/s/,sugar
+milk,/s/,cheese,whippingCream
+chicken,/s/,chickenHam
+whippingCream,/s/,butter
+liveChicken,/s/,egg,chicken
+cow,/s/,steak,milk
+tropics,/s/,cocoa,banana,vanilla,mushroom,sugarCane
+farm,/s/,liveChicken,cow,sheep,pig
+sheep,/s/,mutton
+crops,/s/,grains,corn
+sea,/s/,saltWater,fish,stingRay,squid
+saltWater,/s/,salt,water
+pig,/s/,pork

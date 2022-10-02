@@ -1,50 +1,28 @@
 import { expect, test } from "@jest/globals";
-import { mix } from "../alchemy-utils";
+import { compareArr, readFile } from "../../common/utils";
+import Alchemy from "../Alchemy";
 
-test("banana and iceCream makes bananaSplit.", () => {
-  expect(mix(["banana", "iceCream"])).toBe("bananaSplit");
+const mix = Alchemy.mix;
+
+test("Test on alchemy-utils-mix.test.txt. To test all possible mixtures.", () => {
+  readFile("src/alchemy/__tests__/alchemy-utils-mix.test.txt", (item) => {
+    const mixture = item.split(",");
+    const separator = mixture.findIndex((i) => i == "/s/");
+    const toMix = mixture.slice(0, separator);
+    const expectedRes = mixture.slice(separator + 1);
+    const mixed = mix(toMix);
+    const check = compareArr(mixed, expectedRes);
+    expect(check).toBe(true);
+  });
 });
 
-test("iceCream and banana makes bananaSplit.", () => {
-  expect(mix(["iceCream", "banana"])).toBe("bananaSplit");
-});
-
-test("milk and whippingCream makes iceCream.", () => {
-  expect(mix(["milk", "whippingCream"])).toBe("iceCream");
-});
-
-test("whippingCream and milk makes iceCream.", () => {
-  expect(mix(["whippingCream", "milk"])).toBe("iceCream");
-});
-
-test("banana and milk makes nothing.", () => {
-  expect(mix(["banana", "milk"])).toBe(null);
-});
-
-test("ham and bread makes nothing.", () => {
-  expect(mix(["ham, bread"])).toBe(null);
-});
-
-test("ham, cheese, bread makes sandwich.", () => {
-  expect(mix(["ham", "cheese", "bread"])).toBe("sandwich");
-});
-
-test("cheese, ham, bread makes sandwich.", () => {
-  expect(mix(["cheese", "ham", "bread"])).toBe("sandwich");
-});
-
-test("flour, yeast, water makes bread.", () => {
-  expect(mix(["flour", "yeast", "water"])).toBe("bread");
-});
-
-test("cocoa, milk, butter, sugar, water makes chocolate.", () => {
-  expect(mix(["milk", "butter", "sugar", "water", "cocoa"])).toBe("chocolate");
-});
-
-test("milk, chocolate makes chocolateMilk.", () => {
-  expect(mix(["milk", "chocolate"])).toBe("chocolateMilk");
-});
-
-test("grains, water makes rice.", () => {
-  expect(mix(["grains", "water"])).toBe("rice");
+test("Test on alchemy-utils-extract.test.txt. To test all possible extractions.", () => {
+  readFile("src/alchemy/__tests__/alchemy-utils-extract.test.txt", (item) => {
+    const extraction = item.split(",");
+    const toExtract = extraction[0];
+    const product = extraction.slice(2);
+    const result = Alchemy.extract(toExtract);
+    const check = compareArr(result, product);
+    expect(check).toBe(true);
+  });
 });

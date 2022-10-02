@@ -1,0 +1,8 @@
+milk,whippingCream,/s/,iceCream
+banana,iceCream,/s/,bananaSplit
+flour,yeast,water,sugar,/s/,bread
+chickenHam,cheese,bread,/s/,chickenHamCheeseSandwich
+cocoa,milk,butter,sugar,water,/s/,chocolate
+milk,chocolate,/s/,chocolateMilk
+grains,water,/s/,rice
+flour,egg,butter,sugar,salt,milk,bakingSoda,/s/,cake
