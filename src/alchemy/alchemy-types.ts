@@ -1,16 +1,16 @@
-import { alchemyData } from "./alchemy-data";
+export type mixtureDataType = {
+  mixture: string[];
+  makes: string[];
+}[];
 
-export type itemData = {
-  isPrimitive: boolean;
-  isMixable: boolean;
+export type extractionDataType = {
+  from: string;
+  to: string[];
+}[];
+
+export type alchemyItemsDataType = {
+  id: string;
+  name: string;
   prettyPrint: string;
-  mixWith: {
-    item: alchemyItemsType[];
-    makes: string;
-  }[];
-  components: string[];
-};
-
-export type alchemyItemsType = keyof typeof alchemyData;
-
-export type alchemyDataType = Record<string, itemData>;
+  imgSrc: null | string;
+}[];
