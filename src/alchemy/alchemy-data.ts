@@ -1,243 +1,328 @@
-import { alchemyDataType } from "./alchemy-types";
+import {
+  alchemyItemsDataType,
+  extractionDataType,
+  mixtureDataType,
+} from "./alchemy-types";
 
-export const alchemyData: alchemyDataType = {
-  iceCream: {
-    isPrimitive: false,
-    isMixable: true,
-    prettyPrint: "Ice-Cream",
-    mixWith: [
-      {
-        item: ["banana"],
-        makes: "bananaSplit",
-      },
-    ],
-    components: ["milk", "whippingCream"],
+export const alchemyItemData: alchemyItemsDataType = [
+  {
+    id: "0",
+    name: "iceCream",
+    prettyPrint: "Ice-cream",
+    imgSrc: null,
   },
-  banana: {
-    isPrimitive: true,
-    isMixable: true,
+  {
+    id: "1",
+    name: "banana",
     prettyPrint: "Banana",
-    mixWith: [
-      {
-        item: ["iceCream"],
-        makes: "bananaSplit",
-      },
-    ],
-    components: [],
+    imgSrc: null,
   },
-  bananaSplit: {
-    isPrimitive: false,
-    isMixable: false,
+  {
+    id: "2",
+    name: "bananaSplit",
     prettyPrint: "Banana Split",
-    components: ["banana, iceCream"],
-    mixWith: [],
+    imgSrc: null,
   },
-  milk: {
-    isPrimitive: true,
-    isMixable: true,
+  {
+    id: "3",
+    name: "milk",
     prettyPrint: "Milk",
-    mixWith: [
-      {
-        item: ["butter", "sugar", "water", "cocoa"],
-        makes: "chocolate",
-      },
-      {
-        item: ["whippingCream"],
-        makes: "iceCream",
-      },
-      {
-        item: ["chocolate"],
-        makes: "chocolateMilk",
-      },
-    ],
-    components: [],
+    imgSrc: null,
   },
-  whippingCream: {
-    isPrimitive: true,
-    isMixable: true,
-    prettyPrint: "Whipping Cream",
-    mixWith: [
-      {
-        item: ["milk"],
-        makes: "iceCream",
-      },
-    ],
-    components: [],
+  {
+    id: "4",
+    name: "whippingCream",
+    prettyPrint: "Whipping cream",
+    imgSrc: null,
   },
-  bread: {
-    isPrimitive: false,
-    isMixable: true,
+  {
+    id: "5",
+    name: "bread",
     prettyPrint: "Bread",
-    mixWith: [
-      {
-        item: ["ham", "cheese"],
-        makes: "sandwich",
-      },
-    ],
-    components: ["flour", "yeast"],
+    imgSrc: null,
   },
-  ham: {
-    isPrimitive: true,
-    isMixable: true,
-    prettyPrint: "Ham",
-    mixWith: [
-      {
-        item: ["bread", "cheese"],
-        makes: "sandwich",
-      },
-    ],
-    components: [],
+  {
+    id: "6",
+    name: "chickenHam",
+    prettyPrint: "Chicken ham",
+    imgSrc: null,
   },
-  cheese: {
-    isPrimitive: true,
-    isMixable: true,
+  {
+    id: "7",
+    name: "cheese",
     prettyPrint: "Cheese",
-    mixWith: [
-      {
-        item: ["ham", "bread"],
-        makes: "sandwich",
-      },
-    ],
-    components: [],
+    imgSrc: null,
   },
-  sandwich: {
-    isPrimitive: false,
-    isMixable: false,
-    prettyPrint: "Sandwich",
-    mixWith: [],
-    components: ["ham, cheese, bread"],
+  {
+    id: "8",
+    name: "chickenHamCheeseSandwich",
+    prettyPrint: "Chicken ham and cheese sandwich",
+    imgSrc: null,
   },
-  flour: {
-    isPrimitive: true,
-    isMixable: true,
+  {
+    id: "9",
+    name: "flour",
     prettyPrint: "Flour",
-    mixWith: [
-      {
-        item: ["yeast", "water"],
-        makes: "bread",
-      },
-    ],
-    components: [],
+    imgSrc: null,
   },
-  yeast: {
-    isPrimitive: true,
-    isMixable: true,
+  {
+    id: "10",
+    name: "yeast",
     prettyPrint: "Yeast",
-    mixWith: [
-      {
-        item: ["flour", "water"],
-        makes: "bread",
-      },
-    ],
-    components: [],
+    imgSrc: null,
   },
-  cocoa: {
-    isPrimitive: true,
-    isMixable: true,
-    prettyPrint: "Cocoa powder",
-    mixWith: [
-      {
-        item: ["milk", "butter", "sugar", "water"],
-        makes: "chocolate",
-      },
-    ],
-    components: [],
+  {
+    id: "11",
+    name: "cocoa",
+    prettyPrint: "Cocoa",
+    imgSrc: null,
   },
-  butter: {
-    isPrimitive: true,
-    isMixable: true,
+  {
+    id: "12",
+    name: "butter",
     prettyPrint: "Butter",
-    mixWith: [
-      {
-        item: ["milk", "cocoa", "sugar", "water"],
-        makes: "chocolate",
-      },
-    ],
-    components: [],
+    imgSrc: null,
   },
-  sugar: {
-    isPrimitive: true,
-    isMixable: true,
+  {
+    id: "13",
+    name: "sugar",
     prettyPrint: "Sugar",
-    mixWith: [
-      {
-        item: ["milk", "butter", "cocoa", "water"],
-        makes: "chocolate",
-      },
-    ],
-    components: [],
+    imgSrc: null,
   },
-  water: {
-    isPrimitive: true,
-    isMixable: true,
+  {
+    id: "14",
+    name: "water",
     prettyPrint: "Water",
-    mixWith: [
-      {
-        item: ["milk", "butter", "sugar", "cocoa"],
-        makes: "chocolate",
-      },
-      {
-        item: ["grains"],
-        makes: "rice",
-      },
-    ],
-    components: [],
+    imgSrc: null,
   },
-  chocolateMilk: {
-    isPrimitive: false,
-    isMixable: false,
+  {
+    id: "15",
+    name: "chocolateMilk",
     prettyPrint: "Chocolate Milk",
-    mixWith: [],
-    components: ["milk", "chocolate"],
+    imgSrc: null,
   },
-  chocolate: {
-    isPrimitive: false,
-    isMixable: true,
-    prettyPrint: "Chocolate",
-    mixWith: [
-      {
-        item: ["milk"],
-        makes: "chocolate",
-      },
-    ],
-    components: ["milk", "butter", "sugar", "cocoa", "water"],
-  },
-  chicken: {
-    isPrimitive: true,
-    isMixable: true,
+  {
+    id: "16",
+    name: "chicken",
     prettyPrint: "Chicken",
-    mixWith: [
-      {
-        item: ["rice"],
-        makes: "chickenRice",
-      },
-    ],
-    components: [],
+    imgSrc: null,
   },
-  rice: {
-    isPrimitive: false,
-    isMixable: true,
+  {
+    id: "17",
+    name: "rice",
     prettyPrint: "Rice",
-    mixWith: [
-      {
-        item: ["chicken"],
-        makes: "chickenRice",
-      },
-    ],
-    components: ["water", "grains"],
+    imgSrc: null,
   },
-  grains: {
-    isPrimitive: true,
-    isMixable: true,
+  {
+    id: "18",
+    name: "grains",
     prettyPrint: "Grains",
-    mixWith: [
-      {
-        item: ["water"],
-        makes: "rice",
-      },
-    ],
-    components: [],
+    imgSrc: null,
   },
-};
+  {
+    id: "19",
+    name: "sugarCane",
+    prettyPrint: "Sugar Cane",
+    imgSrc: null,
+  },
+  {
+    id: "20",
+    name: "cake",
+    prettyPrint: "Cake",
+    imgSrc: null,
+  },
+  {
+    id: "21",
+    name: "salt",
+    prettyPrint: "Salt",
+    imgSrc: null,
+  },
+  {
+    id: "22",
+    name: "bakingSoda",
+    prettyPrint: "Baking Soda",
+    imgSrc: null,
+  },
+  {
+    id: "23",
+    name: "egg",
+    prettyPrint: "Egg",
+    imgSrc: null,
+  },
+  {
+    id: "24",
+    name: "chocolateCake",
+    prettyPrint: "Chocolate Cake",
+    imgSrc: null,
+  },
+  {
+    id: "25",
+    name: "liveChicken",
+    prettyPrint: "Live chicken",
+    imgSrc: null,
+  },
+  {
+    id: "26",
+    name: "cow",
+    prettyPrint: "Cow",
+    imgSrc: null,
+  },
+  {
+    id: "27",
+    name: "steak",
+    prettyPrint: "Beef steak",
+    imgSrc: null,
+  },
+  {
+    id: "28",
+    name: "tropics",
+    prettyPrint: "Tropics",
+    imgSrc: null,
+  },
+  {
+    id: "29",
+    name: "vanilla",
+    prettyPrint: "Vanilla",
+    imgSrc: null,
+  },
+  {
+    id: "30",
+    name: "mushroom",
+    prettyPrint: "Mushroom",
+    imgSrc: null,
+  },
+  {
+    id: "31",
+    name: "farm",
+    prettyPrint: "Farm",
+    imgSrc: null,
+  },
+  {
+    id: "32",
+    name: "sheep",
+    prettyPrint: "Sheep",
+    imgSrc: null,
+  },
+  {
+    id: "33",
+    name: "mutton",
+    prettyPrint: "Mutton",
+    imgSrc: null,
+  },
+  {
+    id: "34",
+    name: "crops",
+    prettyPrint: "Crops",
+    imgSrc: null,
+  },
+  {
+    id: "35",
+    name: "corn",
+    prettyPrint: "Corn",
+    imgSrc: null,
+  },
+  {
+    id: "36",
+    name: "sea",
+    prettyPrint: "Sea",
+    imgSrc: null,
+  },
+  {
+    id: "37",
+    name: "saltWater",
+    prettyPrint: "Salt water",
+    imgSrc: null,
+  },
+  {
+    id: "38",
+    name: "fish",
+    prettyPrint: "Fish",
+    imgSrc: null,
+  },
+  {
+    id: "39",
+    name: "stingRay",
+    prettyPrint: "Stingray",
+    imgSrc: null,
+  },
+  {
+    id: "40",
+    name: "squid",
+    prettyPrint: "Squid",
+    imgSrc: null,
+  },
+  {
+    id: "41",
+    name: "pig",
+    prettyPrint: "Pig",
+    imgSrc: null,
+  },
+  {
+    id: "42",
+    name: "pork",
+    prettyPrint: "Pork",
+    imgSrc: null,
+  },
+];
 
-export const alchemyItems = Object.keys(alchemyData);
+export const alchemyMixturesData: mixtureDataType = [
+  { mixture: ["milk", "whippingCream"], makes: ["iceCream"] },
+  { mixture: ["banana", "iceCream"], makes: ["bananaSplit"] },
+  { mixture: ["flour", "yeast", "water", "sugar"], makes: ["bread"] },
+  {
+    mixture: ["chickenHam", "cheese", "bread"],
+    makes: ["chickenHamCheeseSandwich"],
+  },
+  {
+    mixture: ["cocoa", "milk", "butter", "sugar", "water"],
+    makes: ["chocolate"],
+  },
+  {
+    mixture: ["milk", "chocolate"],
+    makes: ["chocolateMilk"],
+  },
+  {
+    mixture: ["water", "grains"],
+    makes: ["rice"],
+  },
+  {
+    mixture: ["flour", "egg", "butter", "sugar", "salt", "milk", "bakingSoda"],
+    makes: ["cake"],
+  },
+  {
+    mixture: ["cake", "chocolate"],
+    makes: ["chocolateCake"],
+  },
+];
+
+export const alchemyExtractionsData: extractionDataType = [
+  { from: "grains", to: ["flour"] },
+  { from: "sugarCane", to: ["sugar"] },
+  { from: "milk", to: ["cheese", "whippingCream"] },
+  { from: "chicken", to: ["chickenHam"] },
+  { from: "whippingCream", to: ["butter"] },
+  { from: "liveChicken", to: ["chicken", "egg"] },
+  { from: "cow", to: ["steak", "milk"] },
+  {
+    from: "tropics",
+    to: ["cocoa", "banana", "vanilla", "mushroom", "sugarCane"],
+  },
+  {
+    from: "farm",
+    to: ["liveChicken", "cow", "sheep", "pig"],
+  },
+  { from: "sheep", to: ["mutton"] },
+  { from: "crops", to: ["grains", "corn"] },
+  { from: "sea", to: ["saltWater", "fish", "stingRay", "squid"] },
+  { from: "saltWater", to: ["salt", "water"] },
+  { from: "pig", to: ["pork"] },
+];
+
+export const primitives: alchemyItemsDataType = alchemyItemData.filter((i) => {
+  const name = i.name;
+  const toFindMix = alchemyMixturesData.filter((j) => j.makes.includes(name));
+  const toFindExtract = alchemyExtractionsData.filter((k) =>
+    k.to.includes(name)
+  );
+  return toFindMix.length + toFindExtract.length == 0;
+});
